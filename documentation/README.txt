@@ -1,12 +1,23 @@
-README - Google Sign-In PHP package (no vendor)
+README - PHP LOGIN SYSTEM (no vendor)
 ---------------------------------------------------
 
 Included files:
-- config.php            : DB and OAuth placeholders (edit values)
-- login_glass.php       : Login page with Google button
-- google_callback.php   : Handles Google OAuth response and saves to DB
-- google_signin_db.sql  : SQL to create the users table
-- test_autoload.php     : small test you can use after installing vendor
+- admin_dashboard.php
+analytics_placeholder.php
+config.php
+database.sql
+edit_user.php
+forgot_password.php
+index.php
+log_action.php
+log_placeholder.php
+manage_users.php
+README.txt
+register.php
+reset_password.php
+settings_placeholder.php
+user_dashboard.php
+verify.php
 
 Important:
 - This ZIP DOES NOT include the 'vendor' directory due to package size and
