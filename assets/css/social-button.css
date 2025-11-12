@@ -1,0 +1,54 @@
+ 
+  .social-btn {
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+    
+   
+ 
+  }
+
+  /* 🌑 Apple button */
+  .social-btn.apple {
+    background: linear-gradient(180deg, #0b0b0b, #1b1b1b);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    
+  }
+  .social-btn.apple:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(180deg, #1b1b1b, #2c2c2c);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  }
+
+  /* 🌈 Google button */
+  .social-btn.google {
+    background: linear-gradient(180deg, #3a3a3a, #4b4b4b);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  .social-btn.google:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(180deg, #4b4b4b, #5b5b5b);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  }
+
+  .social-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .social-btn span {
+    flex: 1;
+    text-align: center;
+  }
