@@ -203,8 +203,57 @@ $adminPassword = "123456"; // you can change this if you want
 $adminName = "Admin";
 
 ----------------------------------------------------------------------------------
+INSTALATION STEPS:-
 
+Install XAMPP or your preferred local server.
 
+Start Apache and MySQL from the control panel.
+
+Copy the project folder to htdocs (for XAMPP).
+
+Open phpMyAdmin → create a new database (e.g., login_system).
+
+Import the provided SQL file (users_table.sql).
+
+Run composer install to install PHPMailer.
+
+Update config.php with your database and email credentials.
+
+Open your browser and visit:
+
+http://localhost/php-login-system/
+--------------------------------------------------------------------------------------------------
+
+Software Requirements:- 
+
+XAMPP / WAMP / LAMP / MAMP (any local server stack)
+
+Must include Apache and MySQL
+
+PHP version: 8.0 or higher (recommended: PHP 8.1+)
+
+MySQL version: 5.7 or higher
+
+Composer – for installing PHPMailer and dependencies
+
+Modern web browser (Chrome, Edge, Firefox, Safari, etc.)
+
+Code editor (VS Code, Sublime Text, PHPStorm, etc.)
+--------------------------------------------------------------------------------------------------------
+Tools & Technologies Used:- 
+
+PHP 8+ — Core backend scripting
+
+MySQL — Database management
+
+PHPMailer — Sending secure verification/reset emails
+
+Bootstrap 5 — Responsive front-end layout
+
+HTML5, CSS3, JavaScript — UI and interactivity
+
+Composer — Dependency management
+------------------------------------------------------------------------------------------------------------
 
 
 
