@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main class="d-flex flex-column justify-content-center flex-grow-1">
     <div class="card card-glass p-4">
       <h4 class="text-center mb-3">Login to Your Account</h4>
-      <p class="text-center mb-4">Use your email & password or continue with Google/Apple.</p>
+      <p class="text-center mb-4">Use your email & password </p>
 
       <?php if ($error): ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -177,10 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Don’t have an account? <a href="register.php" class="text-info text-decoration-none">Register</a></p>
       </div>
 
-      <div class="mt-3">
-        <button class="social-btn"><i class="bi bi-google"></i> Continue with Google</button>
-        <button class="social-btn mt-2"><i class="bi bi-apple"></i> Continue with Apple</button>
-      </div>
+     
     </div>
   </main>
 
