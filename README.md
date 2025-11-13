@@ -192,6 +192,19 @@ Security tips for production
 •	Use prepared statements (you already do) and password_hash / password_verify.
 
 
+--------------------------------------------------------------------------------
+ADDMIN LOGIN -
+In craete.php file you can add
+1- ADD YOUR EMAIL 
+2- PASSWORD-123456
+
+$adminEmail = "ADD YOUR EMAIL ID";
+$adminPassword = "123456"; // you can change this if you want
+$adminName = "Admin";
+
+----------------------------------------------------------------------------------
+
+
 
 
 
