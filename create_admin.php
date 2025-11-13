@@ -1,7 +1,7 @@
 <?php
 require 'config.php'; // ✅ Make sure config.php connects to your DB
 
-$adminEmail = "manasroutcse@gmail.com";
+$adminEmail = "ADD YOUR EMAIL ID";
 $adminPassword = "123456"; // you can change this if you want
 $adminName = "Admin";
 
