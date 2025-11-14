@@ -59,6 +59,14 @@ Security:
 - Never commit config.php with real secrets to public repos.
 - Use HTTPS in production and ensure GOOGLE_REDIRECT_URI exactly matches the Google Console setting.
 
+ADDMIN LOGIN:- 
+Go to create_admin.php file
+Here:-
+$adminEmail = "ADD YOUR EMAIL ID";
+$adminPassword = "123456"; // you can change this if you want
+$adminName = "Admin";
+Then login
+
 
 
 
@@ -141,7 +149,7 @@ or use MySQL CLI: mysql -u root -p
 ________________________________________
 Quick: Create database & table (SQL)
 Run this in phpMyAdmin or MySQL CLI:
-CREATE DATABASE IF NOT EXISTS crud_app_email_verify CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE demo_crud;
 USE demo_crud;
 CREATE TABLE contacts (
   id INT AUTO_INCREMENT PRIMARY KEY,

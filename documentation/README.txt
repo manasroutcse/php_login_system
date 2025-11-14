@@ -49,86 +49,166 @@ Security:
 
 
 
-PHP 8 AND MYSQLI INSTALATION:-
-Windows (recommended: XAMPP) — fastest, easiest
-1.	Download XAMPP (Apache + PHP + MySQL + phpMyAdmin):
-o	Go to https://www.apachefriends.org and download the latest XAMPP for Windows.
-2.	Install:
-o	Run the installer, accept defaults, install to C:\xampp.
-3.	Start services:
-o	Open XAMPP Control Panel → Start Apache and MySQL.
-o	If ports conflict (80/443), stop IIS or change Apache ports in Config → Apache (httpd.conf).
-4.	Test PHP:
-o	Create C:\xampp\htdocs\test.php with:
-o	<?php phpinfo();
-o	Open http://localhost/test.php in browser.
-5.	Access phpMyAdmin:
-o	Visit http://localhost/phpmyadmin/ — default MySQL user: root with no password (set one).
-6.	Configure PHP settings (optional):
-o	Edit C:\xampp\php\php.ini (upload_max_filesize, post_max_size, display_errors in dev).
-o	Restart Apache after changes.
-7.	Install Composer:
-o	Download Composer Windows installer from https://getcomposer.org and run it — point it to C:\xampp\php\php.exe.
-o	Verify: open Command Prompt → composer -V.
-8.	Create DB for your app:
-o	phpMyAdmin → New → name e.g. crud_app_email_verify → run SQL to create contacts table (schema provided earlier).
-9.	Common fixes:
-o	If vendor/autoload.php missing → run composer require phpmailer/phpmailer in your project folder.
-o	File permission: Windows usually OK; ensure uploads/ folder writable.
-________________________________________
-macOS — Homebrew (recommended) or MAMP
-Homebrew method (cleaner)
-1.	Install Homebrew (if not):
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-2.	Install PHP & MySQL:
-3.	brew install php
-4.	brew install mysql
-5.	Start services:
-6.	brew services start php
-7.	brew services start mysql
-8.	Secure MySQL & set root password:
-9.	mysql_secure_installation
-10.	Test PHP:
-11.	php -v
-12.	echo "<?php phpinfo();" > /tmp/test.php
-13.	php -S localhost:8000 -t /tmp
-14.	# Open http://localhost:8000/test.php
-15.	Install Composer:
-16.	curl -sS https://getcomposer.org/installer | php
-17.	mv composer.phar /usr/local/bin/composer
-18.	composer -V
-19.	Optional: install phpMyAdmin via brew or use brew install phpmyadmin and configure.
-20.	MAMP alternative: download MAMP app (contains Apache+PHP+MySQL), start servers via UI.
-________________________________________
-Ubuntu / Debian Linux (Apache + PHP + MySQL)
-1.	Update & install packages:
-2.	sudo apt update
-3.	sudo apt install apache2 php libapache2-mod-php php-mysql mysql-server php-cli unzip
-4.	Secure MySQL:
-5.	sudo mysql_secure_installation
-6.	Start/restart services:
-7.	sudo systemctl enable --now apache2
-8.	sudo systemctl enable --now mysql
-9.	Test PHP:
-o	Create /var/www/html/test.php:
-o	<?php phpinfo();
-o	Open http://localhost/test.php.
-10.	Install Composer:
-11.	php -r "copy('https://getcomposer.org/installer','composer-setup.php');"
-12.	php composer-setup.php
-13.	sudo mv composer.phar /usr/local/bin/composer
-14.	composer -V
-15.	phpMyAdmin:
-16.	sudo apt install phpmyadmin
-or use MySQL CLI: mysql -u root -p
-17.	Permissions: set www-data write permission for uploads:
-18.	sudo mkdir -p /var/www/html/yourapp/uploads
-19.	sudo chown -R www-data:www-data /var/www/html/yourapp/uploads
-20.	sudo chmod -R 755 /var/www/html/yourapp/uploads
-________________________________________
+# PHP Login & Registration System
+
+A secure and modern PHP Login & Registration System with email verification, password reset, and user dashboard. Built with PHP, MySQL, PHPMailer, and Bootstrap 5.
+
+---
+
+## 🔐 Features
+
+- User Registration & Login
+- Secure password hashing (`password_hash`, `password_verify`)
+- Email verification (activation link)
+- Forgot password & password reset via email
+- Session-based authentication
+- Logout functionality
+- CSRF protection for important forms
+- SQL Injection protection (prepared statements)
+- XSS protection using `htmlspecialchars()`
+- Bootstrap 5 responsive UI
+- Clean and commented code
+
+---
+
+## 🧩 Technologies Used
+
+- PHP 7.4+ / 8.x
+- MySQL / MariaDB
+- PHPMailer (via Composer)
+- HTML5, CSS3, Bootstrap 5
+- JavaScript (basic validation)
+
+---
+
+## ✅ Requirements
+
+- Web server (Apache / Nginx / XAMPP / WAMP / Laragon / cPanel hosting)
+- PHP 7.4 or higher
+- MySQL / MariaDB
+- PHP extensions:
+  - mysqli
+  - mbstring
+  - json
+  - openssl
+
+---
+
+## ⚙️ Installation
+
+1. **Upload project**
+
+   - Localhost (XAMPP):
+     - Copy the folder to: `htdocs/your_project_name`
+   - cPanel:
+     - Upload all files to: `public_html/` or a subfolder.
+
+2. **Create database**
+
+   - Open **phpMyAdmin**
+   - Click **New** → Enter a name (e.g. `login_system`)
+   - Click **Create**
+
+3. **Import SQL file**
+
+   - Select your database
+   - Go to **Import** tab
+   - Choose: `database/login_system.sql`
+   - Click **Import**
+
+4. **Configure database (config.php)**
+
+   Edit `config.php`:
+
+   ```php
+   $hostname = "localhost";
+   $username = "root";
+   $password = "";
+   $database = "login_system";
+
+Configure Base URL
+__$base_url = "http://localhost/your_project_name/";
+// For live:
+// $base_url = "https://yourdomain.com/";
+
+Configure SMTP (Email)
+
+In config.php (or mail config section), set:
+
+$mail->Host = "smtp.yourhost.com";
+$mail->Username = "your-email@example.com";
+$mail->Password = "your-email-password";
+$mail->Port = 587; // or 465 for SSL
+___________
+
+------------------------------------------------------------
+Test the system
+
+Open: http://localhost/your_project_name/register.php
+
+Try:
+
+Register a new user
+
+Check email verification
+
+Login
+
+Forgot password
+
+Reset password
+
+Access dashboard
+----------------------------------------------------------
+Folder Structure
+.
+             # CSS, JS, images
+├── 
+│   └── database.sql  # Database export
+├── 
+│   ├── header.php
+│   └── footer.php
+├── vendor/               # PHPMailer (Composer)
+├── config.php            # DB + SMTP configuration
+├── index.php             # Redirect / landing
+├── register.php          # User registration
+├── index.php             # User login
+├── verify.php            # Email verification
+├── forgot-password.php   # Request reset
+├── reset-password.php    # Set new password
+└── dashboard.php    # Protected user area
+------admin_dashboard.php      # Protected admin area 
+---------------------------------------------------------
+Default Settings
+
+No default user is created by default (depends on your DB file).
+
+You can manually insert an admin/user from phpMyAdmin if needed.
+------------------------------------------------------
+Installation
+---------------------------------
+1. Upload the project files to your server (localhost or hosting).
+2. Create a MySQL database using phpMyAdmin.
+3. Import the provided SQL file (database/login_system.sql).
+4. Open config.php and update:
+   - Database host, username, password and name
+   - Base URL of your website
+   - SMTP settings for sending emails
+5. Open the project URL in your browser and test:
+   - Register, verify email, login, forgot password, reset password, dashboard.
+
+---------------------------------
+✔ Requirements
+---------------------------------
+- PHP 7.4 or higher
+- MySQL / MariaDB
+- Web server (Apache / Nginx / XAMPP / WAMP / cPanel)
+- PHP extensions: mysqli, mbstring, json, openssl
+
+--------------------------------------------------------
 Quick: Create database & table (SQL)
 Run this in phpMyAdmin or MySQL CLI:
-CREATE DATABASE IF NOT EXISTS crud_app_email_verify CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE demo_crud;
 USE demo_crud;
 CREATE TABLE contacts (
   id INT AUTO_INCREMENT PRIMARY KEY,

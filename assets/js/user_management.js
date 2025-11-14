@@ -1,1 +1,0 @@
-const UserManager = (() => { return { init: ()=>{ console.log('UserManager Init'); } }; })();
